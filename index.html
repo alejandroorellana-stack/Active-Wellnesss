@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -52,11 +52,12 @@
   <p style="color: var(--text-secondary); margin-bottom: 24px;">Ingresa tus hábitos de traslado para calcular de manera directa cuánto dinero y tiempo recuperas al mes entrenando localmente en San Rafael en lugar de viajar a Talca.</p>
   
   <div class="form" style="max-width: 600px; margin: 0 auto 64px auto;">
-    <label style="display:block; margin-bottom:6px; font-size:13px; font-weight:bold; color:var(--accent-color);">¿Cuántos días a la semana viajas o entrenas?:</label>
-    <input type="number" id="op-dias" value="3" min="1" max="7" required>
+    <label style="display:block; margin-bottom:6px; font-size:13px; font-weight:bold; color:var(--accent-color);">¿Cuántos días a la semana viajas o entrenas? (Máximo 7):</label>
+    <input type="number" id="op-dias" placeholder="Ejemplo: 3" min="1" max="7" required>
 
     <label style="display:block; margin-bottom:6px; font-size:13px; font-weight:bold; color:var(--accent-color);">¿Qué medio de transporte utilizas para ir a Talca?:</label>
     <select id="op-transporte" required>
+      <option value="" disabled selected hidden>Seleccione su medio de transporte...</option>
       <option value="auto">Automóvil Particular (Combustible + Peaje Lateral)</option>
       <option value="micro">Transporte Público / Microbús (Pasajes ida y vuelta)</option>
     </select>
