@@ -266,7 +266,7 @@ const defaultProducts = [
     stock: 8, 
     cat: "nutricion", 
     image: "imagenes/pdm.png", 
-    desc: "Polvo para preparar una bebida que contains proteínas de alta calidad. Sabor Vainilla. SKU#1122.", 
+    desc: "Polvo para preparar una bebida que contiene proteínas de alta calidad. Sabor Vainilla. SKU#1122.", 
     info: "24g de proteína por porción, fortificado con vitaminas y minerales esenciales.", 
     uso: "Disolver 2 cucharadas en 250ml de agua fría o mezclar junto al batido nutricional.", 
     adv: "Contiene una fuente de fenilalanina.",
@@ -413,7 +413,7 @@ const defaultProducts = [
     info: "Aceite de pescado premium rico en EPA y DHA.", 
     uso: "Consumir 1 cápsula blanda al día junto con las comidas principales.", 
     adv: "Contiene ingredientes derivados de pescado.",
-    beneficios: "Protega la salud cardiovascular sin dejar molesto reflujo gracias a sus aceites de menta."
+    beneficios: "Protege la salud cardiovascular sin dejar molesto reflujo gracias a sus aceites de menta."
   },
   { 
     id: 32, 
@@ -863,7 +863,6 @@ function switchStoreTab(category) {
     if(infoAbono) infoAbono.style.display = "block";
   }
   
-  // SOLUCIÓN: Solo ejecuta el render si el grid de productos existe en la página actual
   if (document.getElementById("products-catalog-grid")) {
     ejecutarRenderFiltrado();
   }
@@ -897,7 +896,7 @@ function ejecutarRenderFiltrado() {
           <img src="${p.image}" alt="${p.name}" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="product-img-placeholder" style="display:none;">${initials}</div>
         </div>
-        <h3 style="color:#fff; font-size:16px;">${p.name}</h3>
+        h3 style="color:#fff; font-size:16px;">${p.name}</h3>
         <div class="stock-tag ${isOut ? 'stock-out' : 'stock-available'}" style="margin-top:4px;">${stockTag}</div>
       </div>
       <div style="margin-top:12px;">
@@ -1027,8 +1026,22 @@ function reservar(e) {
 }
 
 function calcularCostoOportunidad() {
-  const dias = parseInt(document.getElementById("op-dias").value); const transporte = document.getElementById("op-transporte").value;
-  const resDiv = document.getElementById("op-resultado"); if (!dias || dias <= 0) return;
+  const dias = parseInt(document.getElementById("op-dias").value); 
+  const transporte = document.getElementById("op-transporte").value;
+  const resDiv = document.getElementById("op-resultado"); 
+  
+  if (!dias || dias <= 0) return;
+  
+  if (dias > 7) {
+    alert("Por lógica, los días a la semana no pueden ser mayores a 7. ¡Inténtalo de nuevo!");
+    return;
+  }
+  
+  if (!transporte) {
+    alert("Por favor, seleccione un medio de transporte.");
+    return;
+  }
+
   const ahorroMonetario = (dias * 4.33) * (transporte === "auto" ? 4550 : 5000);
   const tiempoRecuperadoHoras = (dias * 4.33) * 0.75;
   resDiv.innerHTML = `
