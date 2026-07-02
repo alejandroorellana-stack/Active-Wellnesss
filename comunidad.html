@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunidad & Educación Fitness - Active Wellness</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .brand-banner {
+      background: linear-gradient(135deg, rgba(229, 193, 88, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
+      border: 1px solid rgba(229, 193, 88, 0.2);
+      padding: 32px;
+      border-radius: 16px;
+      margin-bottom: 48px;
+      text-align: left;
+    }
+    .edu-section-title {
+      color: var(--accent-color);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(229, 193, 88, 0.06);
+      border: 1px solid rgba(229, 193, 88, 0.15);
+      color: var(--accent-color);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .recipe-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+    }
+    .formula-box {
+      background: #000000;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px dashed rgba(255,255,255,0.06);
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--success-color);
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <a href="index.html" style="text-decoration: none; color: var(--accent-color); display: flex; align-items: center;">
+      <img src="imagenes/logo.png" alt="Logo" style="height: 50px; margin-right: 15px;">
+      Active Wellness
+    </a>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="catalogo.html">Tienda<span id="nav-count" class="nav-badge" style="display:none;">0</span></a>
+    <a href="gimnasio.html">Gimnasio</a>
+    <a href="agenda.html">Agendar</a>
+    <a href="comunidad.html" style="color: var(--accent-color);">Educación Fit</a>
+    <a href="contacto.html">Contacto</a>
+    <button class="nav-btn-link" onclick="toggleCartSidebar()">🛒 Carrito</button>
+  </nav>
+</header>
+
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h3>Tu Carrito</h3>
+    <button class="close-cart" onclick="toggleCartSidebar()">✕</button>
+  </div>
+  <div class="cart-items-container" id="cart-items-list"></div>
+  <div>
+    <p style="font-size: 18px; font-weight: bold; margin-bottom: 16px;">Total: <span id="cart-sidebar-total" style="color:var(--accent-color);">$0</span></p>
+    <button onclick="enviarAWhatsApp()" class="btn" style="background:var(--success-color); color:white; width:100%; padding:14px; margin-bottom:12px;">Confirmar pedido por WhatsApp 💬</button>
+    <button onclick="clearCart()" class="btn" style="background:var(--danger-color); color:white; width:100%; padding:10px; font-size:12px;">Vaciar Carrito 🗑️</button>
+  </div>
+</div>
+
+<section class="hero">
+  <h1>Portal de Inteligencia Nutricional</h1>
+  <p>Domina los pilares de la macronutrición, micronutrición e hidratación celular para maximizar tus resultados físicos.</p>
+</section>
+
+<section class="section">
+
+  <div class="brand-banner">
+    <h3 style="color: var(--accent-color); font-size: 20px; margin-bottom: 12px; font-weight: 700;">🌱 El Respaldo de la Nutrición Celular Inteligente</h3>
+    <p style="font-size: 15px; line-height: 1.7; color: #e0e0e0; margin-bottom: 14px;">
+      Para que un plan de entrenamiento rinda frutos, el cuerpo requiere densidad de nutrientes, no solo calorías. Los productos de Herbalife Nutrition son líderes mundiales porque quiebran el problema de la alimentación moderna: entregan un perfil completo de vitaminas, minerales y proteínas puras con un aporte calórico controlado.
+    </p>
+    <p style="font-size: 14px; line-height: 1.7; color: var(--text-secondary);">
+      Al estar formulados bajo un estándar biotecnológico de Nutrición Celular, sus componentes están microfiltrados para asegurar una biodisponibilidad inmediata, lo que significa que tu cuerpo los absorbs y metaboliza al instante en sala de musculación sin generar pesadez digestiva.
+    </p>
+  </div>
+
+  <h2>💪 Bloque 1: Pilares de la Macronutrición</h2>
+  <p style="color: var(--text-secondary); margin-bottom: 32px;">Los macronutrientes aportan las estructuras moleculares y la energía primaria que el organismo necesita en altas dosis diarias.</p>
+  
+  <div class="grid" style="margin-bottom: 56px;">
+    <div class="card" style="text-align: left;">
+      <div>
+        <div class="edu-section-title">🥩 Proteínas</div>
+        <p style="color: #fff; font-size: 14px; margin-bottom: 12px; font-weight: 600;">Estructura y Reparación Tisular</p>
+        <p>Son los ladrillos del cuerpo. Al entrenar pesado, rompes microfibras musculares; las proteínas entregan los aminoácidos necesarios para reparar y supercompensar esa estructura magra, aumentando la fuerza y acelerando el gasto metabólico.</p>
+        <div class="formula-box">Meta Hipertrofia = Peso (kg) x 2.0g Proteína</div>
+      </div>
+      <div style="margin-top: 16px;">
+        <span class="badge-pill">Soporte Líder: Rebuild Strength H24</span>
+        <button onclick="window.location.href='producto.html?id=20'" style="width: 100%; font-size: 11px; padding: 10px; background: none; border: 1px solid var(--border-subtle); color: #fff;">Ver Ficha Técnica</button>
+      </div>
+    </div>
+
+    <div class="card" style="text-align: left;">
+      <div>
+        <div class="edu-section-title">⚡ Carbohidratos</div>
+        <p style="color: #fff; font-size: 14px; margin-bottom: 12px; font-weight: 600;">El Combustible de Alta Intensidad</p>
+        <p>Son la fuente energética predilecta del sistema nervioso y los músculos. Se almacenan en forma de glucógeno muscular. Un nivel óptimo de carbohidratos limpios garantiza que puedas entrenar al fallo sin sufrir fatiga prematura ni catabolismo.</p>
+        <div class="formula-box">Rendimiento = Glucógeno Celular Estable</div>
+      </div>
+      <div style="margin-top: 16px;">
+        <span class="badge-pill">Soporte Líder: CR7 Drive H24</span>
+        <button onclick="window.location.href='producto.html?id=21'" style="width: 100%; font-size: 11px; padding: 10px; background: none; border: 1px solid var(--border-subtle); color: #fff;">Ver Ficha Técnica</button>
+      </div>
+    </div>
+
+    <div class="card" style="text-align: left;">
+      <div>
+        <div class="edu-section-title">🥑 Grasas Saludables</div>
+        <p style="color: #fff; font-size: 14px; margin-bottom: 12px; font-weight: 600;">Regulación Hormonal y Articular</p>
+        <p>Las grasas insaturadas (como el Omega-3) protegen las membranas de las células, modulan la producción de hormonas vitales como la testosterona y actúan como un potente desinflamatorio natural para las articulaciones recargadas.</p>
+        <div class="formula-box">Salud Arterial = Ácidos Grasos EPA + DHA</div>
+      </div>
+      <div style="margin-top: 16px;">
+        <span class="badge-pill">Soporte Líder: Herbalifeline</span>
+        <button onclick="window.location.href='producto.html?id=16'" style="width: 100%; font-size: 11px; padding: 10px; background: none; border: 1px solid var(--border-subtle); color: #fff;">Ver Ficha Técnica</button>
+      </div>
+    </div>
+  </div>
+
+  <h2>🌿 Bloque 2: Micronutrición, Fibra y Balances Líquidos</h2>
+  <p style="color: var(--text-secondary); margin-bottom: 32px;">Catalizadores metabólicos que gobiernan el correcto funcionamiento mecánico e inmunitario del cuerpo.</p>
+  
+  <div class="grid" style="margin-bottom: 64px;">
+    <div class="card" style="text-align: left;">
+      <div>
+        <div class="edu-section-title">🍎 Fibra Activa</div>
+        <p style="color: #fff; font-size: 14px; margin-bottom: 12px; font-weight: 600;">Depuración y Control Abdominal</p>
+        <p>La fibra soluble e insoluble limpia las vellosidades del intestino, atrapando toxinas y excesos de grasa. Además, al retrasar el vaciado gástrico, aplana las curvas de insulina en la sangre y elimina por completo la hinchazón del abdomen.</p>
+        <div class="formula-box">Tránsito Óptimo = 25g a 30g Fibra / Día</div>
+      </div>
+      <div style="margin-top: 16px;">
+        <span class="badge-pill">Soporte Líder: Fibra Activa Manzana</span>
+        <button onclick="window.location.href='producto.html?id=8'" style="width: 100%; font-size: 11px; padding: 10px; background: none; border: 1px solid var(--border-subtle); color: #fff;">Ver Ficha Técnica</button>
+      </div>
+    </div>
+
+    <div class="card" style="text-align: left;">
+      <div>
+        <div class="edu-section-title">🔬 Vitaminas y Minerales</div>
+        <p style="color: #fff; font-size: 14px; margin-bottom: 12px; font-weight: 600;">Los Catalizadores Biológicos</p>
+        <p>No aportan energía directa, pero sin ellos las células no pueden sintetizar las proteínas ni transformar los carbohidratos en combustible. Micronutrientes como el calcio, magnesio y antioxidantes C y E blindan el sistema inmune.</p>
+        <div class="formula-box">Blindaje Inmune = 22 Micronutrientes Clave</div>
+      </div>
+      <div style="margin-top: 16px;">
+        <span class="badge-pill">Soporte Líder: Complejo Multivitamínico / Xtra-Cal</span>
+        <button onclick="window.location.href='producto.html?id=18'" style="width: 100%; font-size: 11px; padding: 10px; background: none; border: 1px solid var(--border-subtle); color: #fff;">Ver Ficha Técnica</button>
+      </div>
+    </div>
+
+    <div class="card" style="text-align: left;">
+      <div>
+        <div class="edu-section-title">💧 Hidratación Celular</div>
+        <p style="color: #fff; font-size: 14px; margin-bottom: 12px; font-weight: 600;">Balance Osmótico e Hidroelectrolítico</p>
+        <p>Un músculo deshidratado pierde hasta un 20% de su rendimiento de fuerza de forma inmediata. Beber agua pura no basta: se requiere reponer los electrolitos vitales (sodio, magnesio, potasio) que se pierden a través de la sudoración.</p>
+        <div class="formula-box">Fórmula Base = Peso (kg) / 35 = Litros Agua</div>
+      </div>
+      <div style="margin-top: 16px;">
+        <span class="badge-pill">Soporte Líder: CR7 Drive / Aloe Vera</span>
+        <button onclick="window.location.href='producto.html?id=21'" style="width: 100%; font-size: 11px; padding: 10px; background: none; border: 1px solid var(--border-subtle); color: #fff;">Ver Ficha Técnica</button>
+      </div>
+    </div>
+  </div>
+
+  <h2>🥞 La Cocina Fit Premium: Transforma tu Nutrición</h2>
+  <p style="color: var(--text-secondary); margin-bottom: 32px;">Recetas inteligentes utilizando la sinergia de los productos oficiales y sus precios del Protein Stand.</p>
+  
+  <div class="grid">
+    <div class="card" style="text-align: left;">
+      <div>
+        <span class="badge-pill">🥞 Desayuno Funcional</span>
+        <h3>Waffles de Chocolate & Cobertura Crunch</h3>
+        <div class="recipe-meta">
+          <span>⏱️ 8 minutos</span>
+          <span>🔥 290 kcal</span>
+          <span>💪 32g Proteína</span>
+        </div>
+        <p style="font-size: 13px; color:#fff; font-weight:600; margin-bottom:6px;">Ingredientes:</p>
+        <p style="font-size: 13px; color:var(--text-secondary); margin-bottom:12px;">• 2 medidas de Batido Nutricional Protéico ($41.790)<br>• 1 medida de Proteína en polvo personalizada (PPP) ($34.133)<br>• Topping: 1 porción de Protein Crunch ($16.524)</p>
+        <p style="font-size: 13px;"><strong style="color: #fff;">Preparación:</strong> Batir el polvo junto con un huevo y 50ml de agua hasta armar una crema espesa. Cocinar en wafflera precalentada por 4 minutos. Coronar con el crunch alto en hierro para máxima textura.</p>
+      </div>
+      <div style="margin-top: 20px; display: flex; gap: 10px;">
+        <button onclick="window.location.href='producto.html?id=1'" style="flex: 1; font-size: 11px; padding: 8px 4px;">Batido</button>
+        <button onclick="window.location.href='producto.html?id=13'" style="flex: 1; font-size: 11px; padding: 8px 4px; background:none; border:1px solid var(--accent-color); color:var(--accent-color);">Crunch</button>
+      </div>
+    </div>
+
+    <div class="card" style="text-align: left;">
+      <div>
+        <span class="badge-pill">🧁 Snack Control Ansiedad</span>
+        <h3>Volcán de Muffin Chocolate & Café Mocha</h3>
+        <div class="recipe-meta">
+          <span>⏱️ 3 minutos</span>
+          <span>🔥 210 kcal</span>
+          <span>💪 24g Proteína</span>
+        </div>
+        <p style="font-size: 13px; color:#fff; font-weight:600; margin-bottom:6px;">Ingredientes:</p>
+        <p style="font-size: 13px; color:var(--text-secondary); margin-bottom:12px;">• 2 medidas de Nutri Muffin ($33.243)<br>• Maridaje: 1 taza de High Protein Iced Coffee ($58.516)</p>
+        <p style="font-size: 13px;"><strong style="color: #fff;">Preparación:</strong> En una taza, mezclar el polvo de Nutri Muffin con 40ml de agua con un tenedor. Cocinar al microondas por 65 segundos. Acompañar con el café helado proteico Mocha para un impulso de cafeína y enfoque.</p>
+      </div>
+      <div style="margin-top: 20px; display: flex; gap: 10px;">
+        <button onclick="window.location.href='producto.html?id=9'" style="flex: 1; font-size: 11px; padding: 8px 4px;">Muffin</button>
+        <button onclick="window.location.href='producto.html?id=12'" style="flex: 1; font-size: 11px; padding: 8px 4px; background:none; border:1px solid var(--accent-color); color:var(--accent-color);">Coffee</button>
+      </div>
+    </div>
+
+    <div class="card" style="text-align: left;">
+      <div>
+        <span class="badge-pill">🏋️ Post-Entreno Estructural</span>
+        <h3>Cremoso Recuperador Secuencial H24</h3>
+        <div class="recipe-meta">
+          <span>⏱️ 2 minutos</span>
+          <span>🔥 340 kcal</span>
+          <span>💪 36g Proteína</span>
+        </div>
+        <p style="font-size: 13px; color:#fff; font-weight:600; margin-bottom:6px;">Ingredientes:</p>
+        <p style="font-size: 13px; color:var(--text-secondary); margin-bottom:12px;">• 2 medidas de Herbalife 24 Rebuild Strength ($63.244)<br>• 1 cucharada de Protein Drink Mix (PDM) ($53.487)</p>
+        <p style="font-size: 13px;"><strong style="color: #fff;">Preparación:</strong> En licuadora, verter 300ml de agua helada, los dosificadores de Rebuild Strength y el PDM. Licuar por 30 segundos. Tomar de inmediato para detener el catabolismo y acelerar la síntesis proteica de suero y caseína.</p>
+      </div>
+      <div style="margin-top: 20px; display: flex; gap: 10px;">
+        <button onclick="window.location.href='producto.html?id=20'" style="flex: 1; font-size: 11px; padding: 8px 4px;">Rebuild</button>
+        <button onclick="window.location.href='producto.html?id=7'" style="flex: 1; font-size: 11px; padding: 8px 4px; background:none; border:1px solid var(--accent-color); color:var(--accent-color);">PDM</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Active Wellness</h3>
+      <p>Centro de Bienestar Integral</p>
+      <p>Arturo Alessandri 424, San Rafael.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Horarios Oficiales</h3>
+      <p>Lunes a Viernes: 07:00 - 14:00 | 16:00 - 22:00</p>
+      <p>Sábados: 09:00 - 13:00</p>
+    </div>
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p>WhatsApp: +56 9 4159 0793</p>
+      <p>Correo: patorellana07@hotmail.com</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/activewellness.fit/" target="_blank" class="social-icon">📸 Instagram Gym</a>
+        <a href="https://www.instagram.com/marcefit.24trainer/" target="_blank" class="social-icon">👤 Instagram Marcela</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Active Wellness. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

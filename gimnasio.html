@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Active Wellness: nutrición, entrenamiento, bienestar y estética integral.">
+  <link rel="icon" href="imagenes/favicon.png" type="image/png">
+  <title>Gimnasio - Active Wellness</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .perks-list { text-align: left; margin: 16px 0; padding-left: 20px; font-size: 13px; color: var(--text-secondary); }
+    .perks-list li { margin-bottom: 6px; }
+    .section-subtitle { margin-top: 60px; margin-bottom: 30px; border-bottom: 2px solid var(--border-subtle); padding-bottom: 10px; color: var(--accent-color); font-size: 26px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.5px; }
+    .badge-promo { background: var(--accent-color); color: #000; padding: 4px 8px; font-size: 11px; font-weight: bold; border-radius: 4px; text-transform: uppercase; display: inline-block; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <a href="index.html" style="text-decoration: none; color: var(--accent-color); display: flex; align-items: center;">
+      <img src="imagenes/logo.png" alt="Logo" style="height: 50px; margin-right: 15px;">
+      Active Wellness
+    </a>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="catalogo.html">Tienda<span id="nav-count" class="nav-badge" style="display:none;">0</span></a>
+    <a href="gimnasio.html" style="color: var(--accent-color);">Gimnasio</a>
+    <a href="agenda.html">Agendar</a>
+    <a href="comunidad.html">Educación Fit</a>
+    <a href="contacto.html">Contacto</a>
+    <button class="nav-btn-link" onclick="toggleCartSidebar()">🛒 Carrito</button>
+  </nav>
+</header>
+
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h3>Tu Carrito</h3>
+    <button class="close-cart" onclick="toggleCartSidebar()">✕</button>
+  </div>
+  <div class="cart-items-container" id="cart-items-list"></div>
+  <div>
+    <p style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">Total: <span id="cart-sidebar-total" style="color:var(--accent-color);">$0</span></p>
+    <button onclick="enviarAWhatsApp()" class="btn" style="background:var(--success-color); color:white; width:100%; padding:14px; margin-bottom:12px;">Confirmar pedido por WhatsApp 💬</button>
+    <button onclick="clearCart()" class="btn" style="background:var(--danger-color); color:white; width:100%; padding:10px; font-size:12px;">Vaciar Carrito 🗑️</button>
+  </div>
+</div>
+
+<section class="section">
+  <h2>Planes de Membresía Coherentes</h2>
+
+  <div style="background: rgba(255, 200, 55, 0.02); border-left: 4px solid var(--accent-color); padding: 20px; border-radius: 4px 12px 12px 4px; margin-bottom: 40px; text-align: left;">
+    <p style="font-size: 15px; font-weight: bold; color: #fff; margin: 0;">📢 Beneficio de Inscripción: Todos los planes de membresía regular incluyen una matrícula de incorporación de $15.000 (pago único) que viene con tu Polera Personalizada oficial de Active Wellness de regalo! 👕</p>
+  </div>
+
+  <div class="grid">
+    <!-- PLAN MENSUAL -->
+    <div class="card">
+      <div>
+        <h3>Plan Mensual</h3>
+        <ul class="perks-list">
+          <li style="color: var(--accent-color); font-weight: bold;">👕 Incluye Polera Personalizada (Matrícula: $15.000 pago único)</li>
+          <li>✔ Acceso libre a sala de máquinas</li>
+          <li>✔ Zona de cardio guiada</li>
+          <li>✔ Pautas básicas de progresión</li>
+          <li>✔ Uso completo de duchas y lockers</li>
+        </ul>
+      </div>
+      <div>
+        <div class="price">$36.990</div>
+        <button onclick="addProduct('Plan Mensual', 36990, 1)">Agregar al Carro</button>
+      </div>
+    </div>
+
+    <!-- PLAN TRIMESTRAL -->
+    <div class="card" style="border-color: var(--accent-color);">
+      <div>
+        <span class="badge-promo">¡AHORRA EN TU MEMBRESÍA!</span>
+        <h3>Plan Trimestral</h3>
+        <ul class="perks-list">
+          <li style="color: var(--accent-color); font-weight: bold;">👕 Incluye Polera Personalizada (Matrícula: $15.000 pago único)</li>
+          <li>✔ Todo el contenido del plan mensual</li>
+          <li>✔ Evaluación física inicial con Marcela</li>
+          <li>✔ Monitoreo de control de cargas</li>
+        </ul>
+      </div>
+      <div>
+        <div class="price">$89.990</div>
+        <button onclick="addProduct('Plan Trimestral', 89990, 1)">Agregar al Carro</button>
+      </div>
+    </div>
+
+    <!-- PLAN SEMESTRAL -->
+    <div class="card">
+      <div>
+        <span class="badge-promo" style="background:#222; color:#fff;">¡MÁS BENEFICIOS!</span>
+        <h3>Plan Semestral</h3>
+        <ul class="perks-list">
+          <li style="color: var(--accent-color); font-weight: bold;">👕 Incluye Polera Personalizada (Matrícula: $15.000 pago único)</li>
+          <li>✔ Coberturas previas completas</li>
+          <li>✔ Control de bioimpedancia mensual</li>
+          <li>✔ Pauta nutricional avanzada</li>
+        </ul>
+      </div>
+      <div>
+        <div class="price">$159.990</div>
+        <button onclick="addProduct('Plan Semestral', 159990, 1)">Agregar al Carro</button>
+      </div>
+    </div>
+
+    <!-- PLAN ANUAL -->
+    <div class="card" style="border-color: var(--success-color);">
+      <div>
+        <span class="badge-promo" style="background:var(--success-color); color:#fff;">MÁXIMO AHORRO!</span>
+        <h3>Plan Anual</h3>
+        <ul class="perks-list">
+          <li style="color: var(--accent-color); font-weight: bold;">👕 Incluye Polera Personalizada (Matrícula: $15.000 pago único)</li>
+          <li>✔ Cobertura ininterrumpida de largo aliento</li>
+          <li>✔ Evaluaciones avanzadas morfofuncionales</li>
+          <li>✔ Bloques prioritarios de agenda técnica</li>
+        </ul>
+      </div>
+      <div>
+        <div class="price">$239.990</div>
+        <button onclick="addProduct('Plan Anual', 239990, 1)">Agregar al Carro</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-subtitle">🏋️ Entrenamientos Personalizados</div>
+  <p style="color: var(--text-secondary); margin-bottom: 32px; text-align: left; font-size: 15px;">
+    "Tu mejor versión, nuestro compromiso." Planes premium con asesoría deportiva, nutrición y seguimiento constante en sala.
+  </p>
+
+  <div class="grid">
+    <!-- PLAN PERSONALIZADO -->
+    <div class="card" style="border-color: rgba(255, 200, 55, 0.3);">
+      <div>
+        <h3>Personalizado</h3>
+        <ul class="perks-list">
+          <li style="color: var(--accent-color); font-weight: bold;">🌱 Incluye de regalo Té Verde Herbalife (Formato 50 grs)</li>
+          <li style="color: var(--text-primary); font-weight: 600;">⏱️ 3 veces por semana (Bloques de 90 min.)</li>
+          <li>✔ Incluye acceso libre a Gimnasio e Instalaciones</li>
+          <li>✔ Evaluación Corporal Completa de Bioimpedancia</li>
+          <li>✔ Pauta de Alimentación Personalizada</li>
+          <li>✔ Pauta de Suplementación Personalizada</li>
+          <li>✔ Seguimiento y Acompañamiento Constante en sala</li>
+          <li style="color: var(--success-color);">💳 Aceptamos todo medio de pago (Transbank)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="price" style="font-size: 26px; margin-bottom: 2px;">$140.000 <span style="font-size:12px; color:var(--text-secondary); font-weight:normal;">/ Mes</span></div>
+        <div style="background: rgba(255, 200, 55, 0.08); padding: 10px; border-radius: 8px; border: 1px dashed var(--accent-color); margin-bottom: 16px;">
+          <span style="color:var(--accent-color); font-weight:bold; font-size:13px;">🔥 PROMOCIÓN TRIMESTRAL</span>
+          <p style="font-size: 18px; font-weight: 800; color:#fff; margin-top:2px;">3 Meses x $299.990</p>
+        </div>
+        <button onclick="addProduct('Personalizado Mensual', 140000, 1)" style="font-size:12px; width:100%; margin-bottom:8px;">Añadir Mensual</button>
+        <button onclick="addProduct('Personalizado Trimestral', 299990, 1)" style="font-size:12px; width:100%; background:none; border:1px solid var(--accent-color); color:#fff;">Añadir Promo 3 Meses</button>
+      </div>
+    </div>
+
+    <!-- PLAN PERSONALIZADO PRO -->
+    <div class="card" style="border-color: var(--accent-color);">
+      <div>
+        <span class="badge-promo" style="background: var(--accent-color); color:#000;">Recomendado Premium</span>
+        <h3>Personalizado Pro</h3>
+        <ul class="perks-list">
+          <li style="color: var(--accent-color); font-weight: bold;">🌱 Incluye de regalo Té Verde Herbalife (Formato 50 grs)</li>
+          <li style="color: var(--text-primary); font-weight: 600;">⏱️ 5 veces por semana (Bloques de 90 min.)</li>
+          <li>✔ Incluye acceso libre a Gimnasio e Instalaciones</li>
+          <li>✔ Evaluación Corporal Completa de Bioimpedancia</li>
+          <li>✔ Pauta de Alimentación Personalizada</li>
+          <li>✔ Pauta de Suplementación Personalizada</li>
+          <li>✔ Seguimiento y Acompañamiento Constante en sala</li>
+          <li style="color: var(--success-color);">💳 Aceptamos todo medio de pago (Transbank)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="price" style="font-size: 26px; margin-bottom: 2px;">$160.000 <span style="font-size:12px; color:var(--text-secondary); font-weight:normal;">/ Mes</span></div>
+        <div style="background: rgba(0, 230, 118, 0.08); padding: 10px; border-radius: 8px; border: 1px dashed var(--success-color); margin-bottom: 16px;">
+          <span style="color:var(--success-color); font-weight:bold; font-size:13px;">🔥 PROMOCIÓN TRIMESTRAL</span>
+          <p style="font-size: 18px; font-weight: 800; color:#fff; margin-top:2px;">3 Meses x $320.000</p>
+        </div>
+        <button onclick="addProduct('Personalizado Pro Mensual', 160000, 1)" style="font-size:12px; width:100%; margin-bottom:8px;">Añadir Mensual</button>
+        <button onclick="addProduct('Personalizado Pro Trimestral', 320000, 1)" style="font-size:12px; width:100%; background:none; border:1px solid var(--accent-color); color:#fff;">Añadir Promo 3 Meses</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Active Wellness</h3>
+      <p>Centro de Bienestar Integral</p>
+      <p>San Rafael, Región del Maule.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Horarios Oficiales</h3>
+      <p>Lunes a Viernes: 07:00 - 14:00 | 16:00 - 22:00</p>
+      <p>Sábados: 09:00 - 13:00</p>
+    </div>
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p>WhatsApp: +56 9 9549 6105</p>
+      <p>Correo: activewellness.fit@gmail.com</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/activewellness.fit/" target="_blank" class="social-icon">📸 Instagram Gym</a>
+        <a href="https://www.instagram.com/marcefit.24trainer/" target="_blank" class="social-icon">👤 Instagram Marcela</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/56995496105" class="whatsapp-float-container" target="_blank">
+  <span class="whatsapp-text-badge">¡Contáctanos!</span>
+  <div class="whatsapp-float">
+    <svg class="whatsapp-icon-svg" viewBox="0 0 32 32">
+      <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.607 2.137 8.047l-2.137 7.953 8.135-2.132c2.392 1.315 5.1 2.007 7.865 2.007 8.837 0 16-7.163 16-16s-7.163-16-16-16zm9.055 22.502c-.37 1.042-1.842 1.908-2.54 1.995-.697.087-1.572.15-2.55-.175-3.955-1.307-6.522-5.325-6.72-5.587-.197-.262-1.607-2.137-1.607-4.075 0-1.937 1.012-2.887 1.375-3.275.362-.387.787-.487 1.05-.487.262 0 .525.012.75.025.237.012.462-.05 1.037.525.437.437 1.5 3.662 1.637 3.937.137.275.087.6-.125.85-.212.25-.45.55-.662.775-.212.225-.437.475-.187.9 1.112 1.887 2.45 3.125 4.125 4.125.425.25.662.212.9-.062.237-.275 1.037-1.2 1.312-1.612.275-.412.55-.337.925-.2 1.25.437 2.412.912 2.762 1.062.35.15.587.225.675.375.088.15.088.862-.282 1.904z" fill="#FFF"/>
+    </svg>
+  </div>
+</a>
+
+<script src="app.js"></script>
+</body>
+</html>
